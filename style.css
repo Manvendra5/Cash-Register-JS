@@ -78,6 +78,7 @@ th {
   color: white;
 }
 
-#error-message {
+#error-message,
+#wrong-input {
   font-weight: bold;
 }

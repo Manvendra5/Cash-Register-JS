@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #1db954;
+  --dark-green: #0c5627;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.4;
+  margin: 0px;
+}
+
+h1,
+h3 {
+  color: white;
+}
+
+main {
+  color: var(--dark-green);
+  background-color: var(--primary-color);
+  width: 70%;
+  height: 50%;
+  text-align: center;
+  padding: 2rem;
+  margin: auto;
+  border: none;
+}
+
+.label {
+  display: block;
+  font-size: large;
+  font-weight: bold;
+  margin: 0.5rem auto;
+}
+
+.bill-amount,
+.cash-given {
+  font-family: inherit;
+  max-width: 200px;
+  padding: 0.6rem 1rem;
+  margin: 0.5rem auto;
+}
+
+.btn-check,
+.btn-next {
+  background-color: #000000;
+  border: none;
+  color: white;
+  display: block;
+  font-family: inherit;
+  padding: 0.5rem 1.5rem;
+  margin: 1.5rem auto;
+  font-size: 1.2rem;
+}
+
+.notes-table {
+  font-weight: bold;
+  table-layout: fixed;
+  width: 70%;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.notes-table td,
+th {
+  font-weight: bold;
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 5px;
+}
+
+.no-of-notes {
+  color: white;
+}
+
+#error-message {
+  font-weight: bold;
+}

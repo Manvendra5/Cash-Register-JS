@@ -5,6 +5,7 @@ const errorMessage = document.querySelector('#error-message');
 const noOfNotes = document.querySelectorAll('.no-of-notes');
 const nextButton = document.querySelector(".btn-next");
 const hidenDiv = document.querySelector("#hiden-div");
+const wrongInput = document.querySelector('#wrong-input');
 
 var notes = [2000, 500, 100, 20, 10, 5, 1];
 
@@ -29,8 +30,15 @@ function hideMessage() {
 
 
 nextButton.addEventListener("click", function showOtherFields() {
-    hidenDiv.style.display= "block";
-    nextButton.style.display = "none"
+    wrongInput.style.display = "block";
+    if (Number(billAmount.value) < 0) {
+        wrongInput.innerText = "Invalid bill Amount";
+    }
+    else {
+        wrongInput.style.display ="none";
+        hidenDiv.style.display= "block";
+        nextButton.style.display = "none"
+    }
 });
 
 checkButton.addEventListener("click", function validateBillAmount() {
@@ -41,7 +49,12 @@ checkButton.addEventListener("click", function validateBillAmount() {
     if (billAmountValue > 0) {
         if (cashGivenValue >= billAmountValue) {
             const amountToBeReturned = cashGivenValue - billAmountValue;
-            calculateNoOfNotes(amountToBeReturned);
+            if (amountToBeReturned === 0) {
+                showErrorMessage("No Change to return");
+            }
+            else{
+                calculateNoOfNotes(amountToBeReturned);
+            }
         }
         else {
             showErrorMessage("I will have to ask you to leave, if you don't have enough money."); 

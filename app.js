@@ -31,13 +31,15 @@ function hideMessage() {
 
 nextButton.addEventListener("click", function showOtherFields() {
     wrongInput.style.display = "block";
-    if (Number(billAmount.value) < 0) {
-        wrongInput.innerText = "Invalid bill Amount";
-    }
-    else {
+    const billAmountValue = Number(billAmount.value)
+
+    if (billAmountValue !== 0 && Number.isInteger(billAmountValue) && billAmountValue > 0) {
         wrongInput.style.display ="none";
         hidenDiv.style.display= "block";
-        nextButton.style.display = "none"
+        nextButton.style.display = "none";
+    }
+    else {
+        wrongInput.innerText = "Invalid bill Amount";
     }
 });
 
@@ -46,11 +48,12 @@ checkButton.addEventListener("click", function validateBillAmount() {
     const cashGivenValue = Number(cashGiven.value);
     const billAmountValue = Number(billAmount.value);
     
-    if (billAmountValue > 0) {
+    if (billAmountValue !== 0 && Number.isInteger(billAmountValue) && billAmountValue > 0) {
         if (cashGivenValue >= billAmountValue) {
             const amountToBeReturned = cashGivenValue - billAmountValue;
             if (amountToBeReturned === 0) {
                 showErrorMessage("No Change to return");
+                calculateNoOfNotes(amountToBeReturned);
             }
             else{
                 calculateNoOfNotes(amountToBeReturned);

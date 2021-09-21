@@ -28,6 +28,11 @@ function hideMessage() {
     errorMessage.style.display = "none";
 }
 
+function refreshTable() {
+    for (var i = 0; i < notes.length; i = i + 1) {
+        noOfNotes[i].innerText = "";
+    }
+}
 
 nextButton.addEventListener("click", function showOtherFields() {
     wrongInput.style.display = "block";
@@ -45,6 +50,7 @@ nextButton.addEventListener("click", function showOtherFields() {
 
 checkButton.addEventListener("click", function validateBillAmount() {
     hideMessage();
+    refreshTable();
     const cashGivenValue = Number(cashGiven.value);
     const billAmountValue = Number(billAmount.value);
     
